@@ -1,14 +1,14 @@
 #! /usr/bin/env python
 
-from __future__ import with_statement
+
 
 import os
-import view
-import map
-import mapevents
+from . import view
+from . import map
+from . import mapevents
 
 from pygame.locals import Rect
-from view import UP, DOWN, LEFT, RIGHT
+from .view import UP, DOWN, LEFT, RIGHT
 
 TILES_FOLDER = "tiles"
 MAPS_FOLDER = "maps"
@@ -42,7 +42,7 @@ def loadRpgMap(name):
     eventData = []
     # parse map file - each line represents one map tile        
     mapPath = os.path.join(MAPS_FOLDER, name + ".map")
-    print "loading: %s" % mapPath
+    print("loading: %s" % mapPath)
     with open(mapPath) as mapFile:
         # eg. 10,4 [1] water:dark grass:l2 wood:lrs_supp:3
         maxX, maxY = 0, 0
@@ -79,7 +79,7 @@ def createMapTiles(cols, rows, tileData):
     mapTiles = [[map.MapTile(x, y) for y in range(rows)] for x in range(cols)]
     # iterate through the tile data and set the map tiles
     tileSets = {}     
-    for tilePoint in tileData.keys():
+    for tilePoint in list(tileData.keys()):
         bits = tileData[tilePoint]
         x, y = tilePoint[0], tilePoint[1]
         mapTile = mapTiles[x][y]

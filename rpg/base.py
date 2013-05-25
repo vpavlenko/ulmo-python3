@@ -67,9 +67,9 @@ def loadImage(imagePath, colourKey = None):
     # fullName = os.path.join(folder, name)
     try:
         image = pygame.image.load(imagePath)
-    except pygame.error, message:
-        print "Cannot load image: ", os.path.abspath(imagePath)
-        raise SystemExit, message
+    except pygame.error as message:
+        print("Cannot load image: ", os.path.abspath(imagePath))
+        raise SystemExit(message)
     image = image.convert()
     if colourKey is not None:
         image.set_colorkey(colourKey, RLEACCEL)

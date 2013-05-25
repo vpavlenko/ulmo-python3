@@ -1,14 +1,14 @@
 #!/usr/bin/env python
 
-import events
+from . import events
 
-from sprites import *
+from .sprites import *
 
-from view import UP, DOWN, LEFT, RIGHT
+from .view import UP, DOWN, LEFT, RIGHT
 
-from spriteframes import DirectionalFrames, StaticFrames
-from events import PlayerFootstepEvent, PlayerFallingEvent, LifeLostEvent
-from staticsprites import Shadow
+from .spriteframes import DirectionalFrames, StaticFrames
+from .events import PlayerFootstepEvent, PlayerFallingEvent, LifeLostEvent
+from .staticsprites import Shadow
 
 #DUMMY_EVENT = events.DummyEvent()
 PLAYER_FOOTSTEP_EVENT = PlayerFootstepEvent()
@@ -245,7 +245,7 @@ class Player(RpgSprite):
                 testList = [i in event.range for i in tileRange]
                 if all(testList):
                     return event
-        print "boundary!"
+        print("boundary!")
         return None
     
     """
@@ -267,10 +267,10 @@ class Player(RpgSprite):
     def getTileRange(self, boundary):
         tx1, ty1 = self.getTilePoint(self.baseRect.left, self.baseRect.top)
         tx2, ty2 = self.getTilePoint(self.baseRect.right - 1, self.baseRect.bottom - 1)
-        print "(%s, %s) -> (%s, %s)" % (tx1, ty1, tx2, ty2)
+        print("(%s, %s) -> (%s, %s)" % (tx1, ty1, tx2, ty2))
         if boundary == UP or boundary == DOWN:
-            return range(tx1, tx2 + 1)
-        return range(ty1, ty2 + 1)
+            return list(range(tx1, tx2 + 1))
+        return list(range(ty1, ty2 + 1))
     
     def getTilePoint(self, px, py):
         return px // TILE_SIZE, py // TILE_SIZE
@@ -299,7 +299,7 @@ class Player(RpgSprite):
             return event
         if downLevel:
             # initialise falling state
-            print "down: %s" % downLevel
+            print("down: %s" % downLevel)
             self.falling = downLevel * TILE_SIZE
             # swap to falling frames
             self.clearMasks()

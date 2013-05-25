@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 
-import view
+from . import view
 
-from view import DOWN
+from .view import DOWN
 
 DIRECTION = "direction"
 

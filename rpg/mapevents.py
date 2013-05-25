@@ -1,6 +1,6 @@
 #! /usr/bin/env python
 
-from view import DOWN
+from .view import DOWN
 
 DUMMY_EVENT = 0
 TILE_EVENT = 1
@@ -55,7 +55,7 @@ class BoundaryEvent(MapEvent):
         MapEvent.__init__(self, BOUNDARY_EVENT, transition)
         self.boundary = boundary
         if max:
-            self.range = range(min, max + 1)
+            self.range = list(range(min, max + 1))
         else:
             self.range = [min]
 

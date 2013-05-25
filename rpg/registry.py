@@ -91,7 +91,7 @@ class Registry:
         
     def checkpointReached(self, checkpointReachedEvent):
         checkpoint = checkpointReachedEvent.getMetadata()
-        print "checkpoint reached: %s" % checkpoint.uid
+        print("checkpoint reached: %s" % checkpoint.uid)
         return Registry(checkpoint.mapName,
                         checkpoint.tilePosition,
                         checkpoint.level,

@@ -1,9 +1,9 @@
 #! /usr/bin/env python
 
 import os
-import view
+from . import view
 
-from view import SCALAR
+from .view import SCALAR
 
 FONT_FOLDER = "sprites"
 

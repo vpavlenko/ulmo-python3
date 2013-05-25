@@ -1,12 +1,12 @@
 #! /usr/bin/env python
 
-from __future__ import with_statement
+
 
 import math
-import view
-import mapevents
+from . import view
+from . import mapevents
 
-from view import TILE_SIZE
+from .view import TILE_SIZE
 
 MIN_SHUFFLE = (0, -1, -1, 1)
 MAX_SHUFFLE = (-1, 1, 0, -1)

@@ -2,12 +2,12 @@
 
 import unittest
 import pygame
-import parser
-import view
+from . import parser
+from . import view
 
 from pygame.locals import Rect
 
-from view import TILE_SIZE
+from .view import TILE_SIZE
 
 # initialize everything
 pygame.init()

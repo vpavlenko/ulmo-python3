@@ -1,9 +1,9 @@
 #!/usr/bin/env python
 
-from sprites import *
-from spriteframes import DirectionalFrames, DIRECTION
-from view import UP, DOWN, LEFT, RIGHT, VIEW_WIDTH, VIEW_HEIGHT
-from events import WaspZoomingEvent, BeetleCrawlingEvent
+from .sprites import *
+from .spriteframes import DirectionalFrames, DIRECTION
+from .view import UP, DOWN, LEFT, RIGHT, VIEW_WIDTH, VIEW_HEIGHT
+from .events import WaspZoomingEvent, BeetleCrawlingEvent
 
 """
 Metadata is used to provide a loose coupling between the sprite movement and

@@ -1,10 +1,10 @@
 #!/usr/bin/env python
 
-from sprites import *
+from .sprites import *
 
-from view import VIEW_WIDTH, VIEW_HEIGHT
+from .view import VIEW_WIDTH, VIEW_HEIGHT
 
-import font
+from . import font
 
 """
 Defines a sprite that is fixed on the game display.  Note that this class of
@@ -56,7 +56,7 @@ class CoinCount(FixedSprite):
     def incrementCount(self, n = 1):
         self.count += n
         self.newImage()
-        print "coins:", self.count
+        print("coins:", self.count)
 
     def setCount(self, count):
         self.count = count
@@ -87,7 +87,7 @@ class KeyCount(FixedSprite):
     def incrementCount(self, n = 1):
         self.count += n
         self.newImage()
-        print "keys:", self.count
+        print("keys:", self.count)
 
     def setCount(self, count):
         self.count = count
@@ -119,7 +119,7 @@ class Lives(FixedSprite):
         if (self.count < 0):
             return
         self.newImage()
-        print "lives:", self.count
+        print("lives:", self.count)
         
     def noneLeft(self):
         return self.count < 0

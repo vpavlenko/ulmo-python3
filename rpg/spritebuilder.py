@@ -2,8 +2,8 @@
 
 import pygame
 
-from othersprites import Beetle, Wasp
-from staticsprites import Flames, Coin, Key, Chest, Rock, Door, Checkpoint
+from .othersprites import Beetle, Wasp
+from .staticsprites import Flames, Coin, Key, Chest, Rock, Door, Checkpoint
 
 # map of sprite classes keyed on type
 spriteClasses = {"flames": Flames,
@@ -33,7 +33,7 @@ def createSprite(mapSprite, rpgMap, eventBus, registry):
         sprite = spriteClass()
         sprite.setup(mapSprite.uid, rpgMap, eventBus)
         return sprite
-    print "sprite type not found:", mapSprite.type 
+    print("sprite type not found:", mapSprite.type) 
     return None
 
 """

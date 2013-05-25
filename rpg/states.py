@@ -2,25 +2,25 @@
 
 import os
 import pygame
-import parser
-import sprites
-import view
-import spritebuilder
-import mapevents
-import font
+from . import parser
+from . import sprites
+from . import view
+from . import spritebuilder
+from . import mapevents
+from . import font
 
 from pygame.locals import *
 
-from sprites import MOVE_UNIT
-from view import NONE, UP, DOWN, LEFT, RIGHT, TILE_SIZE, VIEW_WIDTH, VIEW_HEIGHT
-from mapevents import SCENE_TRANSITION, BOUNDARY_TRANSITION, LIFE_LOST_TRANSITION, GAME_OVER_TRANSITION, END_GAME_TRANSITION
+from .sprites import MOVE_UNIT
+from .view import NONE, UP, DOWN, LEFT, RIGHT, TILE_SIZE, VIEW_WIDTH, VIEW_HEIGHT
+from .mapevents import SCENE_TRANSITION, BOUNDARY_TRANSITION, LIFE_LOST_TRANSITION, GAME_OVER_TRANSITION, END_GAME_TRANSITION
 
-from eventbus import EventBus
-from registry import RegistryHandler, Registry
-from player import Ulmo
-from sounds import SoundHandler
-from events import MapTransitionEvent, EndGameEvent
-from fixedsprites import FixedCoin, CoinCount, KeyCount, Lives, CheckpointIcon
+from .eventbus import EventBus
+from .registry import RegistryHandler, Registry
+from .player import Ulmo
+from .sounds import SoundHandler
+from .events import MapTransitionEvent, EndGameEvent
+from .fixedsprites import FixedCoin, CoinCount, KeyCount, Lives, CheckpointIcon
 
 ORIGIN = (0, 0)
 X_MULT = VIEW_WIDTH // 64
@@ -157,7 +157,7 @@ class PlayState:
     def execute(self, keyPresses):
         transition = self.getNextTransition(keyPresses)
         if transition:
-            print "transition: %s" % transition.__class__.__name__
+            print("transition: %s" % transition.__class__.__name__)
             if transition.type == BOUNDARY_TRANSITION:
                 return BoundaryTransitionState(transition)
             if transition.type == SCENE_TRANSITION:

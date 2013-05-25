@@ -1,10 +1,10 @@
 #!/usr/bin/env python
 
-from sprites import *
+from .sprites import *
 
-from spriteframes import StaticFrames
-from events import CoinCollectedEvent, KeyCollectedEvent, DoorOpenedEvent, DoorOpeningEvent, CheckpointReachedEvent
-from events import KeyMetadata, CoinMetadata, DoorMetadata, CheckpointMetadata
+from .spriteframes import StaticFrames
+from .events import CoinCollectedEvent, KeyCollectedEvent, DoorOpenedEvent, DoorOpeningEvent, CheckpointReachedEvent
+from .events import KeyMetadata, CoinMetadata, DoorMetadata, CheckpointMetadata
 
 class Flames(OtherSprite):
     

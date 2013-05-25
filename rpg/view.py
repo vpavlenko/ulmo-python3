@@ -2,7 +2,7 @@
 
 from pygame.transform import scale
 
-from base import *
+from .base import *
 
 SCALAR = 2
 

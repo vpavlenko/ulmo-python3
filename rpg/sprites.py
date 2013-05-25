@@ -2,10 +2,11 @@
 
 import os
 import pygame
-import view
+from functools import cmp_to_key
+from . import view
 
 from pygame.locals import Rect
-from view import SCALAR, TILE_SIZE
+from .view import SCALAR, TILE_SIZE
 
 MOVE_UNIT = 1 * SCALAR
 
@@ -180,6 +181,6 @@ class RpgSprites(pygame.sprite.Group):
     def sprites(self):
         # return the sprites sorted on their z field to ensure 
         # that they appear in the correct 'z' order
-        return sorted(self.spritedict.keys(),
-                      lambda sprite1, sprite2: sprite1.z - sprite2.z)
+        return sorted(list(self.spritedict.keys()),
+                      key=cmp_to_key(lambda sprite1, sprite2: sprite1.z - sprite2.z))
         
